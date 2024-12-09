@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>管理ユーザー詳細画面</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- ヘッダーエリア -->
+<div th:replace="common/header :: header"></div>
+<!-- 確認モーダル -->
+<div th:replace="common/modal :: modal"></div>
+
+<div class="container-fluid h-100">
+
+  <main>
+    <!-- 画面名、画面説明エリア -->
+    <div class="row h-100 mb-3">
+      <h1 class="text-center">管理ユーザー詳細画面</h1>
+      <!-- todo 新規登録モード時に表示 -->
+      <h5 th:if="" class="text-center mt-3 fw-normal register-description">アカウントを新規作成します。各項目をすべて入力してください。</h5>
+      <!-- todo 編集・削除モード時に表示 -->
+      <h5 th:unless="" class="text-center mt-3 fw-normal edit-delete-description">アカウント情報の編集・削除を行います。</h5>
+    </div>
+    <!-- 管理ユーザー新規作成・更新フォーム -->
+    <div class="row h-100 my-5">
+      <div class="col-2"></div>
+      <div class="col-8 bg-body-tertiary m-2 p-4">
+        <!-- todo  th:actionに管理ユーザー新規登録・更新機能のURLを設定 -->
+        <!-- todo  th:objectに対応するフォームオブジェクトを設定 -->
+        <form th:action="@{#}" method="post" th:object="">
+          <div class="row">
+            <div class="my-3 fw-medium">
+              <label>メールアドレス</label>
+              <!-- todo  name, th:valueに対応するフォームオブジェクトのフィールドを設定 -->
+              <input type="text" maxlength="200" name="" th:value=""
+                     placeholder="メールアドレスを入力してください" class="form-control">
+              <!-- todo  エラーメッセージを表示-->
+              <div th:if="" th:error="" class="text-danger"></div>
+            </div>
+            <div class="my-3 fw-medium">
+              <label>氏名</label>
+              <!-- todo  name, th:valueに対応するフォームオブジェクトのフィールドを設定 -->
+              <input type="text" maxlength="200" name="" th:value=""
+                     placeholder="氏名を入力してください" class="form-control">
+              <!-- todo  エラーメッセージを表示-->
+              <div th:if="" th:error="" class="text-danger"></div>
+            </div>
+            <div class="my-3 fw-medium">
+              <label>氏名（かな）</label>
+              <!-- todo  name, th:valueに対応するフォームオブジェクトのフィールドを設定 -->
+              <input type="text" maxlength="200" name="" th:value=""
+                     placeholder="氏名（かな）を入力してください" class="form-control">
+              <!-- todo  エラーメッセージを表示-->
+              <div th:if="" th:error="" class="text-danger"></div>
+            </div>
+            <div class="my-3 fw-medium">
+              <label>パスワード</label>
+              <!-- todo  th:fieldに対応するフォームオブジェクトのフィールドを設定 -->
+              <input type="password" maxlength="200" th:field=""
+                     placeholder="パスワードを入力してください" class="form-control">
+              <span class="form-text">
+                  半角英数字で入力し、アルファベット大文字と記号を必ず1文字以上含んでください<br>
+                  8~24文字で入力してください
+              </span>
+              <!-- todo  エラーメッセージを表示-->
+              <div th:if="" th:error="" class="text-danger mt-3"></div>
+            </div>
+            <div class="my-3 fw-medium">
+              <label>パスワード（確認用）</label>
+              <!-- todo  th:fieldに対応するフォームオブジェクトのフィールドを設定 -->
+              <input type="password" maxlength="200" th:field=""
+                     placeholder="パスワード（確認用）を入力してください" class="form-control">
+              <!-- todo  エラーメッセージを表示-->
+              <div th:if="" th:error="" class="text-danger"></div>
+            </div>
+            <!--　新規登録ボタン　-->
+            <!-- todo 新規登録モード時に表示 -->
+            <th:block th:if="">
+              <div>
+                <!-- todo 確認モーダル表示はJSで行う -->
+                <button type="button" class="btn btn-primary w-100 my-2" onclick="">新規登録</button>
+              </div>
+            </th:block>
+            <!--  編集ボタン・削除ボタン　-->
+            <!-- todo 編集・削除モード時に表示 -->
+            <th:block th:if="">
+              <div class="d-flex">
+                <div class="col-md-5">
+                  <!-- todo 確認モーダル表示はJSで行う -->
+                  <button type="button" class="btn btn-primary w-100 my-2" onclick="">更新</button>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
+                  <!-- todo 管理ユーザー削除処理はJSで行う -->
+                  <button type="button" class="btn btn-danger w-100 my-2" onclick="">削除</button>
+                </div>
+              </div>
+            </th:block>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

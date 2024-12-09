@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+</head>
+<body>
+<div th:fragment="modal" th:remove="tag">
+  <!--/* -->
+  <!-- オーバーレイ -->
+  <!-- */-->
+  <div id="overlay" class="bg-secondary" style="z-index:1; display:none; position:fixed; width:100%; height:120%; opacity:75%;"></div>
+
+  <!--/* -->
+  <!-- 共通選択POPUP -->
+  <!-- */-->
+  <!-- todo モーダルを表示する処理はJSで行う -->
+  <div class="modal" id="" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <!-- todo モーダルの本文をJS側で設定 (ex:削除しますか？) -->
+          <p id=""></p>
+        </div>
+        <div class="modal-footer">
+          <!-- todo モーダルを閉じる処理はJSで行う -->
+          <button type="button" class="btn btn-primary" id="">はい</button>
+          <button type="button" class="btn btn-secondary" id="">いいえ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--/* -->
+  <!-- 変更・設定完了POPUP -->
+  <!-- */-->
+  <!-- todo モーダルを表示する処理はJSで行う -->
+  <div class="modal" id="" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- todo モーダルのタイトルをJS側で設定 (ex:変更完了) -->
+          <h4 class="modal-title" id=""></h4>
+          <!-- todo モーダルを閉じる処理はJSで行う -->
+          <button type="button" class="btn-close" aria-label="Close" id=""></button>
+        </div>
+        <div class="modal-body">
+          <!-- todo モーダルの本文をJS側で設定 (ex:パスワードの変更が完了しました。) -->
+          <p id=""></p>
+        </div>
+        <div class="modal-footer">
+          <!-- todo モーダルを閉じる処理はJSで行う -->
+          <button type="button" class="btn btn-primary" id="">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--/* -->
+  <!-- ローディングモーダル -->
+  <!-- */-->
+  <!-- todo モーダルを表示する処理はJSで行う -->
+  <!-- todo モーダルを閉じる処理はJSで行う -->
+  <div class="modal" tabindex="-1" id="">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <div class="spinner-border" role="status" id="loading" style="width: 100px; height: 100px;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+  <!--/* -->
+  <!-- エラーPOPUP -->
+  <!-- */-->
+  <!-- todo モーダルを表示する処理はJSで行う -->
+  <div class="modal" id="" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <!-- todo バリデーションエラーメッセージ表示領域 -->
+          <p style="white-space:pre-wrap; word-wrap:break-word;" id=""></p>
+        </div>
+        <div class="modal-footer">
+          <!-- todo モーダルを閉じる処理はJSで行う -->
+          <button type="button" class="btn btn-danger" id="">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <!-- todo dnsフィルタリスト詳細リクエスト時に表示 -->
+  <title th:if="">DNSフィルタリスト詳細画面</title>
+  <!-- todo urlフィルタリスト詳細リクエスト時に表示 -->
+  <title th:unless="">URLフィルタリスト詳細画面</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- ヘッダーエリア -->
+<div th:replace="common/header :: header"></div>
+<!-- 確認モーダル -->
+<div th:replace="common/modal :: modal"></div>
+
+<div class="container-fluid h-100">
+
+  <main>
+    <!-- 画面名、画面説明エリア -->
+    <!-- todo dnsフィルタリスト詳細リクエスト時に表示 -->
+    <div class="row h-100 mb-3" th:if="">
+      <h1 class="text-center">DNSフィルタリスト詳細画面</h1>
+      <!-- todo 新規登録モード時に表示 -->
+      <h5 th:if="" class="text-center mt-3 fw-normal">DNSフィルタリストを新規登録します。各項目を入力してください。</h5>
+      <!-- todo 編集・削除モード時に表示 -->
+      <h5 th:unless="" class="text-center mt-3 fw-normal">DNSフィルタリストの編集・削除を行います。</h5>
+    </div>
+    <!-- todo urlフィルタリスト詳細リクエスト時に表示 -->
+    <div class="row h-100 mb-3" th:unless="">
+      <h1 class="text-center">URLフィルタリスト詳細画面</h1>
+      <!-- todo 新規登録モード時に表示 -->
+      <h5 th:if="" class="text-center mt-3 fw-normal">URLフィルタリストを新規登録します。各項目を入力してください。</h5>
+      <!-- todo 編集・削除モード時に表示 -->
+      <h5 th:unless="" class="text-center mt-3 fw-normal">URLフィルタリストの編集・削除を行います。</h5>
+    </div>
+    <div class="row h-100 my-5">
+      <div class="col-2"></div>
+      <div class="col-8 bg-body-tertiary m-2 p-4">
+        <!-- フィルタリスト新規作成・更新フォーム -->
+        <!-- todo th:actionにフィルタリスト新規登録・更新機能のURLを設定 -->
+        <!-- todo th:objectに対応するフォームオブジェクトを設定 -->
+        <form th:action="@{#}" method="post" th:object="">
+          <div class="row px-5">
+            <div class="my-3 fw-medium">
+              <label>フィルタリスト定義名</label>
+              <!-- todo name, th:valueに対応するフォームオブジェクトのフィールドを設定 -->
+              <input type="text" maxlength="200" name="" th:value=""
+                     placeholder="フィルタリスト定義名を入力してください" class="form-control">
+              <!-- todo エラーメッセージを表示-->
+              <div th:if="" th:error="" class="text-danger"></div>
+            </div>
+            <div class="my-3 fw-medium">
+              <div class="col-3">フィルタリスト無効 / 有効</div>
+              <div class="row py-2">
+                <div class="col-8"></div>
+                <div class="col-4 form-switch text-end">
+                  <!-- todo フィルタリスト提供の設定変更リクエストはJSを経由して行う-->
+                  <!-- todo name, th:valueに対応するフォームオブジェクトのフィールドを設定 -->
+                  <!-- todo checkboxの初期表示を設定 -->
+                  <input class="form-check-input py-3 w-25 h-75"
+                         aria-label="無効/有効トグルボタン" id="" name="" th:value=""
+                         type="checkbox" role="switch" th:checked="">
+                </div>
+              </div>
+            </div>
+            <div class="my-3 fw-medium">
+              <div>フィルタリストファイル名</div>
+              <div class="row py-2">
+                <div class="col-6"></div>
+                <!-- todo 新規登録モード時に表示 -->
+                <div th:if="" class="col-4 text-center py-1">――――――――――</div>
+                <!-- todo 編集・削除モード時にフィルタリストファイル名を表示 -->
+                <div th:unless="" th:text="" class="col-4 text-center py-1 fs-5 fw-normal"></div>
+                <!-- フィルタリストファイルDLボタン -->
+                <div class="col-2">
+                  <!-- todo hrefにフィルタリストファイルダウンロード機能のURLを設定 -->
+                  <a class="btn btn-secondary w-100" role="button" href="#">ダウンロード</a>
+                </div>
+              </div>
+            </div>
+            <div class="my-3 fw-medium">
+              <div>最終更新日時</div>
+              <div class="row py-2">
+                <div class="col-9"></div>
+                <!-- todo 新規登録モード時に表示 -->
+                <div th:if="" class="col-3 text-end py-1">――――――――――</div>
+                <!-- todo 編集・削除モード時に表示 -->
+                <!-- todo 最終更新日時を表示-->
+                <div th:unless="" th:text="" class="col-3 text-end py-1 fs-5 fw-normal"></div>
+              </div>
+            </div>
+            <div class="my-3 fw-medium mb-5">
+              <label>フィルタリスト更新元URL</label>
+              <!-- todo name, th:valueに対応するフォームオブジェクトのフィールドを設定 -->
+              <input type="url" maxlength="200" name="" th:value=""
+                     placeholder="フィルタリスト更新元URLを入力してください" pattern="https://.*" class="form-control">
+              <div class="row py-1">
+                <!-- todo エラーメッセージを表示-->
+                <div th:if="" th:error="" class="col-10 text-danger"></div>
+                <!-- フィルタリストファイル同期ボタン -->
+                <!-- todo 確認モーダル表示、ファイル同期はJSで行う -->
+                <!-- todo 新規登録モード時、 ファイル同期ボタンを非活性にする-->
+                <div class="col-2">
+                  <button type="button" class="btn btn-secondary w-100" onclick="" th:disabled="">ファイル同期</button>
+                </div>
+              </div>
+            </div>
+            <!-- 新規登録ボタン -->
+            <!-- todo 新規登録モード時に表示 -->
+            <th:block th:if="">
+              <div>
+                <!-- todo 確認モーダル表示はJSで行う -->
+                <button type="button" class="btn btn-primary w-100 my-2" onclick="">新規登録</button>
+              </div>
+            </th:block>
+            <!-- 編集ボタン・削除ボタン -->
+            <!-- todo 編集・削除モード時に表示 -->
+            <th:block th:unless="">
+              <div class="d-flex">
+                <div class="col-md-5">
+                  <!-- todo 確認モーダル表示はJSで行う -->
+                  <button type="button" class="btn btn-primary w-100 my-2" onclick="">更新</button>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
+                  <!-- todo フィルタリスト削除処理はJSで行う -->
+                  <button type="button" class="btn btn-danger w-100 my-2" onclick="">削除</button>
+                </div>
+              </div>
+            </th:block>
+          </div>
+        </form>
+        <div class="row mt-4"></div>
+        <!-- 変更履歴タイトルエリア -->
+        <div class="row mt-5 px-5">
+          <h3 th:if="" class="col-4 p-0">変更履歴</h3>
+        </div>
+        <!-- 変更履歴リスト -->
+        <div class="row px-5 mb-2">
+          <table class="table table-striped table-hover table-bordered h-100">
+            <thead>
+              <tr class="align-middle">
+                <th scope="col" class="col bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">新規登録 / 編集</span>
+                  </div>
+                </th>
+                <th scope="col" class="col bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">フィルタリスト有効変更</span>
+                  </div>
+                </th>
+                <th scope="col" class="col bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">定義名変更</span>
+                  </div>
+                </th>
+                <th scope="col" class="col text-center bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span>取得元URL変更</span>
+                  </div>
+                </th>
+                <th scope="col" class="col text-center bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span></span>変更日時
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 175行目から186行目のtrタグで囲われた範囲(変更履歴リスト)を繰り返し処理する箇所) -->
+              <!-- todo 変更履歴リストの繰り返し処理 -->
+              <tr class="align-middle" th:each="">
+                <!-- todo 新規登録 / 編集表示 -->
+                <td class="text-center" th:text="${} ? '新規登録' : '編集'"></td>
+                <!-- todo フィルタリスト有効変更表示-->
+                <td class="text-center" th:text="${} ? 'あり' : 'なし'"></td>
+                <!-- todo 定義名変更表示-->
+                <td class="text-center" th:text="${} ? 'あり' : 'なし'"></td>
+                <!-- todo 取得元URL変更表示-->
+                <td class="text-center" th:text="${} ? 'あり' : 'なし'"></td>
+                <!-- todo 変更日時表示-->
+                <td class="text-center updateDateTime" th:text=""></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

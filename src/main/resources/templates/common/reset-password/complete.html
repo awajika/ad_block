@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>再発行依頼完了画面</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- ヘッダーエリア -->
+<div th:replace="common/header :: header"></div>
+
+<div class="container-fluid h-100">
+
+  <main>
+    <!-- 画面名、画面説明エリア -->
+    <div class="row h-100 mb-3">
+      <h1 class="text-center">再発行依頼完了画面</h1>
+    </div>
+    <!-- メッセージ表示エリア -->
+    <div class="row h-100 my-5">
+      <div class="col-3"></div>
+      <div class="col-6 bg-body-tertiary m-2 p-4">
+        <div class="fs-3 text-center my-5">パスワード再発行依頼が完了しました。</div>
+        <!-- ログイン画面に戻るボタン -->
+        <!-- todo 管理者ログイン画面へ遷移 -->
+        <div class="text-center">
+          <button type="button" class="btn btn-primary w-50 m-2" onclick="">ログイン画面に戻る</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

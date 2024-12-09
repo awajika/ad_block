@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>シリアルコード詳細画面</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- ヘッダーエリア -->
+<div th:replace="common/header :: header"></div>
+
+<div class="container-fluid h-100">
+
+  <main>
+    <!-- 画面名、画面説明エリア -->
+    <div class="row h-100 mb-3">
+      <h1 class="text-center">シリアルコード詳細画面</h1>
+      <h5 class="text-center mt-3 fw-normal">シリアルコード詳細画面です。</h5>
+    </div>
+    <div class="row h-100 my-5">
+      <div class="col-2"></div>
+      <div class="col-8 bg-body-tertiary m-2 p-4">
+        <div class="row px-4 mt-5">
+          <div class="col-2 fw-medium fs-5 pt-1">シリアルコード</div>
+          <!-- todo シリアルコード表示-->
+          <div class="col-7 text-end fs-5 pt-1" th:text=""></div>
+          <!-- パスワードリセットボタン-->
+          <!-- todo パスワードリセットはJSで行う -->
+          <div class="col-3 text-end">
+            <button class="btn btn-outline-danger w-100 border-2 fw-bold fs-5"
+                    type="button" onclick="">パスワードリセット
+            </button>
+          </div>
+        </div>
+        <!-- パスワードリセットが実行された後に表示-->
+        <div class="row px-4 mt-5" th:if="">
+          <div class="col-4 fw-medium fs-5">リセット後パスワード</div>
+          <!-- todo リセット後パスワード表示-->
+          <div class="col-7 text-end fs-5 ms-5 pe-0" th:text=""></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5">対象代理店</div>
+          <!-- todo 対象代理店表示-->
+          <div class="col-7 text-end fs-5 ms-5 pe-0" th:text=""></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5">ステータス</div>
+          <div class="col-6"></div>
+          <!-- todo ステータス表示-->
+          <div class="col-2 text-center fs-5 pe-4" th:text=""></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5">有効デバイス数</div>
+          <div class="col-6"></div>
+          <!-- todo 有効デバイス数表示-->
+          <div class="col-2 text-center fs-5 pe-4" th:text=""></div>
+        </div>
+        <!-- 有効デバイス一覧タイトルエリア -->
+        <div class="row px-4 mt-5">
+          <h3 class="col-4">有効デバイス一覧</h3>
+        </div>
+        <!-- 有効デバイスリスト -->
+        <div class="row px-4 mx-0">
+          <table class="table table-striped table-hover table-bordered h-100">
+            <thead>
+              <tr class="align-middle">
+                <th scope="col" class="col-4 bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">デバイスNo.</span>
+                  </div>
+                </th>
+                <th scope="col" class="col bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">デバイス名</span>
+                  </div>
+                </th>
+                <th scope="col" class="col-3 bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">登録日時</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 88行目から95行目のtrタグで囲われた範囲(有効デバイスリスト)を繰り返し処理する箇所) -->
+              <!-- todo 有効デバイスリストの繰り返し処理 -->
+              <tr class="align-middle" th:each="">
+                <!-- todo デバイスNo.表示-->
+                <td class="text-center updateDateTime" th:text=""></td>
+                <!-- todo デバイス名表示-->
+                <td class="text-center updateDateTime" th:text=""></td>
+                <!-- todo 登録日時表示-->
+                <td class="text-center updateDateTime" th:text=""></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row px-4">
+          <div class="col-9"></div>
+          <!-- 利用端末リセットボタン -->
+          <!-- todo 利用端末リセットはJSで行う -->
+          <div class="col-3 text-end">
+            <button class="btn btn-outline-danger w-100 border-2 fw-bold fs-5"
+                    type="button" onclick="">利用端末リセット
+            </button>
+          </div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5">有効フィルタ数</div>
+          <div class="col-6"></div>
+          <!-- todo 有効フィルタ数表示-->
+          <div class="col-2 text-center fs-5 pe-4" th:text=""></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-2 fw-medium fs-5">同期設定</div>
+        </div>
+        <div class="row px-4 mt-3">
+          <div class="col-2"></div>
+          <div class="col-2 fs-5">ブックマーク</div>
+          <div class="col-6"></div>
+          <!-- todo ブックマーク表示-->
+          <div class="col-2 text-center fs-5 pe-4" th:text=""></div>
+        </div>
+        <div class="row px-4 mt-3">
+          <div class="col-2"></div>
+          <div class="col-2 fs-5">フィルタ条件</div>
+          <!-- todo フィルタ条件表示-->
+          <div class="col-7 text-end fs-5 ms-5 pe-4" th:text=""></div>
+        </div>
+        <div class="row px-4 mt-3">
+          <div class="col-2"></div>
+          <div class="col-2 fs-5">設定情報</div>
+          <!-- todo 設定情報表示-->
+          <div class="col-7 text-end fs-5 ms-5 pe-4" th:text=""></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5">VPN許可</div>
+          <div class="col-6"></div>
+          <!-- todo VPN許可表示-->
+          <div class="col-2 text-center fs-5 pe-4" th:text="${} ? 'ON' : 'OFF'"></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5">アプリケーション許可</div>
+          <div class="col-6"></div>
+            <!-- todo アプリケーション許可表示-->
+          <div class="col-2 text-center fs-5 pe-4" th:text="${} ? 'ON' : 'OFF'"></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5">トラッキングブロック許可</div>
+          <div class="col-6"></div>
+          <!-- todo トラッキングブロック許可表示-->
+          <div class="col-2 text-center fs-5 pe-4" th:text="${} ? 'ON' : 'OFF'"></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5">WebLisk許可</div>
+          <div class="col-6"></div>
+          <!-- todo WebLisk許可表示-->
+          <div class="col-2 text-center fs-5 pe-4" th:text="${} ? 'ON' : 'OFF'"></div>
+        </div>
+        <div class="row px-4 mt-5">
+          <div class="col-4 fw-medium fs-5" th:text="">使用許可OS</div>
+          <div class="col-2"></div>
+          <!-- 使用許可OSカラムに格納された配列を繰り返し処理し、使用許可OSを表示 -->
+          <!-- todo th:each, th:textに対応するフィールドを設定 -->
+          <div class="col-6 text-end pt-1" th:each="">
+            <div class="badge rounded-pill text-bg-secondary fs-6 mb-1" th:text=""></div>
+          </div>
+        </div>
+        <!-- 利用履歴一覧タイトルエリア -->
+        <div class="row px-4 mt-5">
+          <h3 class="col-4">利用履歴一覧</h3>
+        </div>
+        <!-- 利用履歴リスト -->
+        <div class="row px-4 mx-0 mb-2">
+          <table class="table table-striped table-hover table-bordered h-100">
+            <thead>
+              <tr class="align-middle">
+                <th scope="col" class="col-2 bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">利用デバイス</span>
+                  </div>
+                </th>
+                <th scope="col" class="col-7 bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">フィルタリングURL</span>
+                  </div>
+                </th>
+                <th scope="col" class="col-3 bg-secondary">
+                  <div class="text-center text-white fw-bold">
+                    <span class="me-auto">フィルタリング日時</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 199行目から2106行目のtrタグで囲われた範囲(利用履歴リスト)を繰り返し処理する箇所) -->
+              <!-- todo 利用履歴リストの繰り返し処理 -->
+              <tr class="align-middle" th:each="">
+                <!-- todo 利用デバイス表示-->
+                <td class="text-center updateDateTime" th:text=""></td>
+                <!-- todo フィルタリングURL表示-->
+                <td class="text-center text-break" th:text=""></td>
+                <!-- todo フィルタリング日時表示-->
+                <td class="col-3 text-center updateDateTime" th:text=""></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- ページネーション -->
+          <div class="mt-3 text-center">
+            <!--  todo pageにページオブジェクト、urlにページネーションのリクエストを受け取るurlを直接指定
+                       使用するurlは実装時に判断(ex:'/page/list')  -->
+            <div th:replace="common/pagination :: pagination(page, url)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

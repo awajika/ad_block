@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>パスワード変更画面</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- ヘッダーエリア -->
+<div th:replace="common/header :: header"></div>
+<div th:replace="common/modal :: modal"></div>
+
+  <div class="container-fluid h-100">
+
+    <main>
+      <!-- 画面名、画面説明エリア -->
+      <div class="row h-100 mb-3">
+        <h1 class="text-center">パスワード変更画面</h1>
+        <h5 class="text-center mt-3 fw-normal">現在のパスワードと新しいパスワードを入力してください。</h5>
+      </div>
+      <!-- パスワード変更フォーム -->
+      <div class="row h-100 my-5">
+        <div class="col-2"></div>
+        <div class="col-8 bg-body-tertiary m-2 p-4">
+          <!-- todo  th:actionにパスワード変更機能のURLを設定 -->
+          <!-- todo  th:objectに対応するフォームオブジェクトを設定 -->
+          <form th:action="@{#}" method="post" th:object="">
+            <div class="row">
+              <!-- todo ログインユーザーが管理ユーザーの時に表示 -->
+              <div class="my-3 fw-medium" th:if="">
+                <label>ログイン中のメールアドレス</label>
+                <!-- todo  name, th:valueに対応するフォームオブジェクトのフィールドを設定 -->
+                <input type="text" maxlength="200" name="" th:value=""
+                       class="form-control" readonly>
+              </div>
+              <!-- todo ログインユーザーがエンドユーザーの時に表示 -->
+              <div class="my-3 fw-medium" th:unless="">
+                <label>ログイン中のシリアルコード</label>
+                <!-- todo  name, th:valueに対応するフォームオブジェクトのフィールドを設定 -->
+                <input type="text" maxlength="200" name="" th:value=""
+                       class="form-control" readonly>
+              </div>
+              <div class="my-3 fw-medium">
+                <label>現在のパスワード</label>
+                <!-- todo  th:fieldに対応するフォームオブジェクトのフィールドを設定 -->
+                <input type="password" maxlength="200" th:field=""
+                       placeholder="現在のパスワードを入力してください" class="form-control">
+                <!-- todo  エラーメッセージを表示-->
+                <div th:if="" th:error="" class="text-danger"></div>
+              </div>
+              <div class="my-3 fw-medium">
+                <label>新しいパスワード</label>
+                <!-- todo  th:fieldに対応するフォームオブジェクトのフィールドを設定 -->
+                <input type="password" maxlength="200" th:field=""
+                       placeholder="新しいパスワードを入力してください" class="form-control">
+                <span class="form-text">
+                  半角英数字で入力し、アルファベット大文字と記号を必ず1文字以上含んでください<br>
+                  8~24文字で入力してください
+                </span>
+                <!-- todo  エラーメッセージを表示-->
+                <div th:if="" th:error="" class="text-danger mt-3"></div>
+              </div>
+              <div class="my-3 fw-medium">
+                <label>新しいパスワード（確認用）</label>
+                <!-- todo  th:fieldに対応するフォームオブジェクトのフィールドを設定 -->
+                <input type="password" maxlength="200" th:field=""
+                       placeholder="新しいパスワード（確認用）を入力してください" class="form-control">
+                <!-- todo  エラーメッセージを表示-->
+                <div th:if="" th:error="" class="text-danger"></div>
+              </div>
+              <!--　変更ボタン　-->
+              <div>
+                <button type="submit" class="btn btn-primary w-100 my-2">変更</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

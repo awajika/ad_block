@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>管理ユーザー一覧画面</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<!-- ヘッダーエリア -->
+<div th:replace="common/header :: header"></div>
+<!-- 確認モーダル -->
+<div th:replace="common/modal :: modal"></div>
+
+<div class="container-fluid h-100">
+
+  <main>
+    <!-- 画面名、画面説明エリア -->
+    <div class="row h-100 mb-3">
+      <h1 class="text-center">管理ユーザー一覧画面</h1>
+      <h5 class="text-center mt-3 fw-normal">管理ユーザーアカウントの一覧画面です。</h5>
+    </div>
+    <!-- 検索エリア -->
+    <div class="row h-100 my-5">
+      <div class="col-2"></div>
+      <div class="col-8 bg-body-tertiary m-2 p-4">
+        <!-- todo  th:actionに検索機能のURLを設定 -->
+        <!-- todo  th:objectに対応するフォームオブジェクトを設定 -->
+        <form th:action="@{#}" method="post" th:object="">
+          <div class="row">
+            <div class="col-8">
+              <!-- 検索条件入力欄 -->
+              <!-- todo  th:fieldに対応するフォームオブジェクトのフィールドを設定 -->
+              <input type="text" class="form-control" th:field=""
+                     placeholder="メールアドレス、氏名、氏名（かな）を入力してください">
+            </div>
+            <div class="col-2 text-center">
+              <button type="submit" class="btn btn-primary w-100">検索</button>
+            </div>
+            <div class="col-2 text-center">
+              <button type="reset" class="btn btn-outline-secondary w-100">クリア</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 一覧タイトルエリア -->
+    <div class="row h-100 mt-5">
+      <div class="col-2"></div>
+      <div class="col-8 mx-2 py-3">
+        <div class="row">
+          <h3 class="col-4 p-0">管理ユーザー一覧</h3>
+          <div class="col-6"></div>
+          <!-- 管理ユーザー新規登録ボタン -->
+          <!-- todo 管理ユーザー詳細画面(新規登録モード)へ遷移 -->
+          <div class="col-2 p-0 text-center">
+            <button class="btn btn-outline-primary w-100 border-2 fw-bold fs-5"
+                    type="button" onclick="">
+              <i class="bi bi-plus-lg"></i>新規登録
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 管理ユーザー一覧リスト -->
+    <div class="row h-100 mt-2">
+      <div class="col-2"></div>
+      <div class="col-8 mx-2 p-0">
+        <table class="table table-striped table-hover table-bordered h-100">
+          <thead>
+            <tr class="align-middle">
+              <th scope="col" class="col-1 bg-secondary">
+                <div class="text-center text-white fw-bold">
+                  <span class="me-auto">No.</span>
+                  <!-- No.で昇順・降順ソートを行うボタン -->
+                  <!-- todo 降順ソートを行う処理はJSで行う -->
+                  <button type="button" class="btn px-1" onclick="">
+                    <i th:if="" class="bi bi-caret-down-fill text-white"></i>
+                    <!-- todo 昇順ソートを行う処理はJSで行う -->
+<!--                    <i th:if="" class="bi bi-caret-up-fill text-white"></i> -->
+                  </button>
+                </div>
+              </th>
+              <th scope="col" class="col text-center bg-secondary">
+                <div class="text-center text-white fw-bold">
+                  <span>メールアドレス</span>
+                  <!-- メールアドレスで昇順・降順ソートを行うボタン -->
+                  <!-- todo 降順ソートを行う処理はJSで行う-->
+                  <button type="button" class="btn px-1" onclick="">
+                    <i th:if="" class="bi bi-caret-down-fill text-white"></i>
+                    <!-- todo 昇順ソートを行う処理はJSで行う -->
+<!--                    <i th:if="" class="bi bi-caret-up-fill text-white"></i> -->
+                  </button>
+                </div>
+              </th>
+              <th scope="col" class="col text-center bg-secondary">
+                <div class="text-center text-white fw-bold">
+                  <span>氏名</span>
+                  <!-- 氏名で昇順・降順ソートを行うボタン -->
+                  <!-- todo 降順ソートを行う処理はJSで行う -->
+                  <button type="button" class="btn px-1" onclick="">
+                    <i th:if="" class="bi bi-caret-down-fill text-white"></i>
+                    <!-- todo 昇順ソートを行う処理はJSで行う -->
+<!--                    <i th:if="" class="bi bi-caret-up-fill text-white"></i> -->
+                  </button>
+                </div>
+              </th>
+              <th scope="col" class="col text-center bg-secondary">
+                <div class="text-center text-white fw-bold">
+                  <span>氏名（かな）</span>
+                  <!-- 氏名(かな)で昇順・降順ソートを行うボタン -->
+                  <!-- todo 降順ソートを行う処理はJSで行う -->
+                  <button type="button" class="btn px-1" onclick="">
+                    <i th:if="" class="bi bi-caret-down-fill text-white"></i>
+                    <!-- todo 昇順ソートを行う処理はJSで行う -->
+<!--                    <i th:if="" class="bi bi-caret-up-fill text-white"></i> -->
+                  </button>
+                </div>
+              </th>
+              <th scope="col" class="col-1 bg-secondary">
+                <div class="text-center text-white fw-bold">
+                  <span>削除</span>
+                </div>
+              </th>
+              <th scope="col" class="col-1 bg-secondary">
+                <div class="text-center text-white fw-bold">
+                  <span>詳細</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--  133行目から152行目のtrタグで囲われた範囲(管理ユーザーリスト)を繰り返し処理する箇所) -->
+            <!--  todo  管理ユーザーリストの繰り返し処理 -->
+            <tr class="align-middle" th:each="">
+              <!-- todo 管理ユーザーのNo.-->
+              <td class="text-center No." th:text=""></td>
+              <!-- todo 管理ユーザーのメールアドレス-->
+              <td class="text-center mail-address" th:text=""></td>
+              <!-- todo 管理ユーザーの氏名-->
+              <td class="text-center name" th:text=""></td>
+              <!-- todo 管理ユーザーの氏名(かな)-->
+              <td class="text-center name-kana" th:text=""></td>
+              <td class="text-center delete-button">
+                <!-- todo 管理ユーザー削除処理はJSで行う -->
+                <button type="button" class="btn btn-outline-danger" onclick="">
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </td>
+              <td class="text-center detail-button">
+                <!-- todo 管理ユーザー詳細画面(編集・削除モード)へ遷移する処理はJSで行う -->
+                <button type="button" class="btn btn-primary" onclick="">詳細</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ページネーション -->
+        <div class="mt-3 text-center">
+          <!--  todo　 pageにページオブジェクト、urlにページネーションのリクエストを受け取るurlを直接指定
+                       使用するurlは実装時に判断(ex:'/page/list')  -->
+          <div th:replace="common/pagination :: pagination(page, url)"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
