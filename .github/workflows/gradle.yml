@@ -11,6 +11,7 @@ env:
   DEST_DIR: '/var/apps'
 
   APP_NAME: 'ad_block'    # your app name
+  APP_NAME_JAR: 'ad_block-0.0.1-SNAPSHOT.jar'
   JAVA_VERSION: '17'    # '1.8' or '11'
   JAVA_OPTS: '-Xms1024M -Xmx1024M'
   RUN_ARGS: '--spring.profiles.active=prod'
@@ -38,7 +39,7 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
         ssh -t -o StrictHostKeyChecking=no -i private_key ${EC2_USER}@${EC2_HOST} "sudo mkdir -p $DEST_DIR/$APP_NAME && sudo chmod -R 777 $DEST_DIR/$APP_NAME"
-        scp -i private_key ${SRC_PATH} ${EC2_USER}@${EC2_HOST}:${DEST_DIR}/${APP_NAME}/${APP_NAME}.jar
+        scp -i private_key ${SRC_PATH} ${EC2_USER}@${EC2_HOST}:${DEST_DIR}/${APP_NAME}/${APP_NAME_JAR}.jar
 
     - name: SSH EC2 Setup and Deploy
       uses: appleboy/ssh-action@v0.0.9
