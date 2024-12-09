@@ -46,7 +46,7 @@ jobs:
       uses: appleboy/ssh-action@v0.0.9
       with:
         key: ${{ secrets.PRIVATE_KEY }}
-        username: ${{ env.EC2_USER }}
+        username: awajika
         host: ${{ env.EC2_HOST }}
         envs: DEST_DIR,JAVA_VERSION,APP_NAME,JAVA_OPTS,RUN_ARGS
         script: |
