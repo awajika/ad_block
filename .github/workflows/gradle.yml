@@ -6,7 +6,7 @@ on:
 
 env:
   EC2_USER: 'ec2-user'
-  EC2_HOST: 18.182.3.98
+  EC2_HOST: 13.231.255.200
   SRC_PATH: 'build/libs/*.jar'
   DEST_DIR: '/var/apps'
 
