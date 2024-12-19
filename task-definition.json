@@ -80,6 +80,5 @@
     },
     "registeredAt": "2024-12-18T05:47:11.977Z",
     "registeredBy": "arn:aws:iam::920372987650:user/awaji.kanako",
-    "enableFaultInjection": false,
     "tags": []
 }
