@@ -1,0 +1,6 @@
+services:
+  java:
+    container_name: spring
+    build: .
+    ports:
+     - "8080:8080"
