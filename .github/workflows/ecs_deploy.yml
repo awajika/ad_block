@@ -76,7 +76,7 @@ jobs:
         # Add execute permission for the gradlew script
         chmod +x ./gradlew
         # Build the project with Gradle
-        ./gradlew build
+        ./gradlew build --warning-mode all
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
