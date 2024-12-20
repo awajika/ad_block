@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "ad_block",
-            "image": "920372987650.dkr.ecr.ap-northeast-1.amazonaws.com/telestation:latest",
+            "image": "${{ env.ECR_REGISTRY }}/rails7-mysql:${{ env.IMAGE_TAG }}",
             "cpu": 0,
             "portMappings": [
                 {
